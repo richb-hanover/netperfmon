@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^.*$ http://netperf.richb-hanover.com:3000/ [P,QSA,L]
