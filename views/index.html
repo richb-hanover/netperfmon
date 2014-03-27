@@ -1,0 +1,24 @@
+<h1>Blog!</h1>
+
+
+Current Time: {{netperfstats.curtime}}<br />
+    Last Min: {{netperfstats.lastmin}} runs<br />
+  Last 5 Min: {{netperfstats.last5min}} runs<br />
+   Last Hour: {{netperfstats.lasthour}} runs<br />
+    Last Day: {{netperfstats.lastday}} runs<br />
+     Elapsed: {{netperfstats.telapse}} msec<br />
+
+{{#each entries}}
+<p>
+<a href="/article/{{id}}">{{title}}</a><br/>
+Published: {{published}}
+</p>
+{{/each}}
+
+
+'lastmin': lastmin,
+        'last5min' : last5min,
+        'lasthour' : lasthour,
+        'lastday'  : lastday,
+        'telapse'  : t2 - t1,
+        'curtime'  : new Date()
