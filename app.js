@@ -3,7 +3,6 @@ var app = express();
 
 var hbs = require('hbs');
 
-var blogEngine = require('./blog');
 var netperfStats = require('./netperfmon');
 
 app.set('view engine', 'html');
@@ -18,12 +17,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/about', function(req, res) {
-	res.render('about', {title:"About Me"});
-});
-
-app.get('/article/:id', function(req, res) {
-	var entry = blogEngine.getBlogEntry(req.params.id);
-	res.render('article',{title:entry.title, blog:entry});
+	res.render('about', {title:"About This Site"});
 });
 
 app.listen(3000);
