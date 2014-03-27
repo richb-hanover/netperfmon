@@ -1,21 +1,23 @@
 <h1>netperf.richb-hanover.com</h1>
 
-<p>netperf <a href="http://netperf.org">http://netperf.org</a>
-is a network performance measurement tool. It relies on two programs
-running on separate computers:
+<p><b>netperf</b> is a network performance measurement tool 
+	(<a href="http://netperf.org">http://netperf.org</a>).
+	It relies on two programs running on separate computers:
 <ul>
-	<li>netserver that listens for connections from a... </li>
-	<li>netperf client tht connects and tells what to do.</li>
+	<li>a <b>netserver</b> that listens for connections from ... </li>
+	<li>a <b>netperf client</b> that connects and tells what to do.</li>
 </ul>
 The netperf client can send commands send or receive streams of data
 and thus measure the data transfer rates between the two devices.
 </p>
+
+<h3>Recent netserver activity</h3>
 <p>This server hosts a <b>netserver</b> that is publicly accessible. 
 	It's open to anyone to use, so it might get heavily loaded.
+This page shows the current and recent load on netperf.richb-hanover.com.
 </p>
-<h3>Recent netserver stats</h3>
-<p>This page displays information about the number of times the
-netserver process has been invoked on this machine.
+<p> 
+The stats below show the netserver process activity, summarized from the creation dates of the 'netserver.debug*' files in /tmp.
 </p>
 
 <p>
@@ -29,9 +31,12 @@ Current Time: {{netperfstats.curtime}}<br />
 
 <h3>Stats for netperf.richb-hanover.com</h3>
 
-<p>Here's a quick "bench.sh" script that I use for getting an
-idea of the capabilities of a Virtual Private Server (VPS) with
-the stats for the current host.</p>
+<p>The "bench.sh" script gives an idea of the 
+connectivity and horsepower of a Virtual Private Server (VPS).
+Thanks to <a href="freevps.us">freevps.us</a> for the cool script.
+To use it, simply copy the "wget..." line below and paste it into
+a terminal session. 
+Here are the stats for netperf.richb-hanover.com:</p>
 <pre>
 $ wget freevps.us/downloads/bench.sh -O - -o /dev/null|bash
 CPU model :  Intel(R) Xeon(R) CPU E3-1240 V2 @ 3.40GHz
@@ -39,7 +44,7 @@ Number of cores : 4
 CPU frequency :  3400.013 MHz
 Total amount of ram : 1024 MB
 Total amount of swap : 1024 MB
-System uptime :   2 days, 23:46,
+System uptime :   22 days, 23:46,
 Download speed from CacheFly: 97.6MB/s
 Download speed from Coloat, Atlanta GA: 109MB/s
 Download speed from Softlayer, Dallas, TX: 60.1MB/s
