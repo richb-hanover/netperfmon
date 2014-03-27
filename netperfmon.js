@@ -8,7 +8,7 @@ exports.getnetperfinfo = function() {
 	var lastmin, last5min, lasthour, lastday, t2;
 
 	var timeList = _.chain(filelist)
-		.filter(function(fname){ return fname.indexOf("netperfUL") == 0 })
+		.filter(function(fname){ return fname.indexOf("netserver.debug") == 0 })
 		.map(function(fname) { 
 			var mt = fs.statSync(path.join("/tmp", fname)).mtime; 
 			return mt.getTime(); 
