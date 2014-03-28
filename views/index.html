@@ -1,5 +1,16 @@
 <h1>netperf.richb-hanover.com</h1>
 
+<style type="text/css">
+.legend {
+	text-align: right;
+	padding-right: 3px;
+	font-weight: bold;
+	}
+.trval {
+	text-align: right;
+	padding-right: 5px;
+}
+</style>
 <p><b>netperf</b> is a network performance measurement tool 
 	(<a href="http://netperf.org">http://netperf.org</a>).
 	It relies on two programs running on separate computers:
@@ -20,14 +31,12 @@ This page shows the current and recent load on netperf.richb-hanover.com.
 The stats below show the netserver process activity, summarized from the creation dates of the 'netserver.debug*' files in /tmp.
 </p>
 
-<p>
-Current Time: {{netperfstats.curtime}}<br />
-    Last Min: {{netperfstats.lastmin}} runs<br />
-  Last 5 Min: {{netperfstats.last5min}} runs<br />
-   Last Hour: {{netperfstats.lasthour}} runs<br />
-    Last Day: {{netperfstats.lastday}} runs<br />
-  Query took: {{netperfstats.telapse}} msec<br />
-</p>
+<table>
+{{#each netperfstats}}
+<tr><td class="legend">{{legend}}: <td class="trval">{{val}} <td>{{units}}
+{{/each}}
+</table>
+
 
 <h3>Stats for netperf.richb-hanover.com</h3>
 

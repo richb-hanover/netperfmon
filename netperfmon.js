@@ -1,6 +1,7 @@
 exports.getnetperfinfo = function() {
 	var fs = require('fs');
 	var path = require('path');
+	var os = require('os');
 	var _ = require('underscore');
 
 	var t1 = new Date().getTime();
@@ -21,16 +22,22 @@ exports.getnetperfinfo = function() {
 	lastday  = _.filter(timeList, function(ftime) { return ftime > t1-1000*60*60*24 }).length;
 	t2 = new Date().getTime();
 
+	var la = os.loadavg();
+	var la = _.map(la, function(num){return num.toFixed(2) });
 
 	// console.log( lastmin, last5min, lasthour, lastday);
 	// console.log(t2 - t1 + " msec");
 
-	return {
-        'lastmin': lastmin,
-        'last5min' : last5min,
-        'lasthour' : lasthour,
-        'lastday'  : lastday,
-        'telapse'  : t2 - t1,
-        'curtime'  : new Date()
-        };
-	};
+	var result = [ 
+		// { "legend":"Current Time"   , "val": new Date() , "units": ""},
+		{ "legend":"Last Minute"    , "val": lastmin    , "units": "accesses"},
+		{ "legend":"Last 5 Minutes" , "val": last5min   , "units": "accesses"},
+		{ "legend":"Last Hour"      , "val": lasthour   , "units": "accesses"},
+		{ "legend":"Last Day"       , "val": lastday    , "units": "accesses"},
+		{ "legend":"Load Avg1"      , "val": la[0]      , "units": ""},
+		{ "legend":"Load Avg5"      , "val": la[1]      , "units": ""},
+		{ "legend":"Load Avg15"     , "val": la[2]      , "units": ""},
+		{ "legend":"Elapsed Time"   , "val": t2 - t1    , "units": "msec"}
+      ];
+    return result;
+};
