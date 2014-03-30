@@ -18,6 +18,7 @@ exports.getnetperfinfo = function() {
 
 	lastmin  = _.filter(timeList, function(ftime) { return ftime > t1-1000*60 }).length;
 	last5min = _.filter(timeList, function(ftime) { return ftime > t1-1000*60*5 }).length;
+	last15min= _.filter(timeList, function(ftime) { return ftime > t1-1000*60*15 }).length;
 	lasthour = _.filter(timeList, function(ftime) { return ftime > t1-1000*60*60 }).length;
 	lastday  = _.filter(timeList, function(ftime) { return ftime > t1-1000*60*60*24 }).length;
 	t2 = new Date().getTime();
@@ -32,12 +33,13 @@ exports.getnetperfinfo = function() {
 		// { "legend":"Current Time"   , "val": new Date() , "units": ""},
 		{ "legend":"Last Minute"    , "val": lastmin    , "units": "accesses"},
 		{ "legend":"Last 5 Minutes" , "val": last5min   , "units": "accesses"},
+		{ "legend":"Last 15 Minutes", "val": last15min  , "units": "accesses"},
 		{ "legend":"Last Hour"      , "val": lasthour   , "units": "accesses"},
 		{ "legend":"Last Day"       , "val": lastday    , "units": "accesses"},
-		{ "legend":"Load Avg1"      , "val": la[0]      , "units": ""},
-		{ "legend":"Load Avg5"      , "val": la[1]      , "units": ""},
-		{ "legend":"Load Avg15"     , "val": la[2]      , "units": ""},
-		{ "legend":"Elapsed Time"   , "val": t2 - t1    , "units": "msec"}
+		{ "legend":"Elapsed Time"   , "val": t2 - t1    , "units": "msec"},
+		{ "legend":"Load Avg-1min"  , "val": la[0]      , "units": ""},
+		{ "legend":"Load Avg-5min"  , "val": la[1]      , "units": ""},
+		{ "legend":"Load Avg-15min" , "val": la[2]      , "units": ""}
       ];
     return result;
 };

@@ -9,23 +9,26 @@
 .trval {
 	text-align: right;
 	padding-right: 5px;
+	padding-left: 15px;
 }
 </style>
 <p><b>netperf</b> is a network performance measurement tool 
 	(<a href="http://netperf.org">http://netperf.org</a>).
 	It relies on two programs running on separate computers:
 <ul>
-	<li>a <b>netserver</b> that listens for connections from ... </li>
-	<li>a <b>netperf client</b> that connects and tells what to do.</li>
+	<li>a <b>netserver</b> that listens for commands from ... </li>
+	<li>a <b>netperf client</b> that sends those commands at the user's direction.</li>
 </ul>
-The netperf client can send commands send or receive streams of data
-and thus measure the data transfer rates between the two devices.
+The netperf client's commands tell netserver to send or receive streams of data
+between the two devices and then measures the data transfer rates between them.
 </p>
 
 <h3>Recent netserver activity</h3>
 <p>This server hosts a <b>netserver</b> that is publicly accessible. 
-	It's open to anyone to use, so it might get heavily loaded.
-This page shows the current and recent load on netperf.richb-hanover.com.
+It's open to anyone to use, so it may be heavily loaded from time to time.
+It also has limited bandwidth to certain parts of the Internet 
+(see the <a href="./about"> About page</a> for details.)
+This page shows the current and recent load.
 </p>
 <p> 
 The stats below show the netserver process activity, summarized from the creation dates of the 'netserver.debug*' files in /tmp.
@@ -36,33 +39,3 @@ The stats below show the netserver process activity, summarized from the creatio
 <tr><td class="legend">{{legend}}: <td class="trval">{{val}} <td>{{units}}
 {{/each}}
 </table>
-
-
-<h3>Stats for netperf.richb-hanover.com</h3>
-
-<p>The "bench.sh" script gives an idea of the 
-connectivity and horsepower of a Virtual Private Server (VPS).
-Thanks to <a href="freevps.us">freevps.us</a> for the cool script.
-To use it, simply copy the "wget..." line below and paste it into
-a terminal session. 
-Here are the stats for netperf.richb-hanover.com (March 2014):</p>
-<pre>
-$ wget freevps.us/downloads/bench.sh -O - -o /dev/null|bash
-CPU model :  Intel(R) Xeon(R) CPU E3-1240 V2 @ 3.40GHz
-Number of cores : 4
-CPU frequency :  3400.013 MHz
-Total amount of ram : 1024 MB
-Total amount of swap : 1024 MB
-System uptime :   22 days, 23:46,
-Download speed from CacheFly: 97.6MB/s
-Download speed from Coloat, Atlanta GA: 109MB/s
-Download speed from Softlayer, Dallas, TX: 60.1MB/s
-Download speed from Linode, Tokyo, JP: 11.0MB/s
-Download speed from i3d.net, Rotterdam, NL: 9.72MB/s
-Download speed from Leaseweb, Haarlem, NL: 17.9MB/s
-Download speed from Softlayer, Singapore: 11.8MB/s
-Download speed from Softlayer, Seattle, WA: 37.4MB/s
-Download speed from Softlayer, San Jose, CA: 38.5MB/s
-Download speed from Softlayer, Washington, DC: 68.0MB/s
-I/O speed :  620 MB/s
-</pre>
