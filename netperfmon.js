@@ -21,6 +21,7 @@ exports.getnetperfinfo = function() {
 	last15min= _.filter(timeList, function(ftime) { return ftime > t1-1000*60*15 }).length;
 	lasthour = _.filter(timeList, function(ftime) { return ftime > t1-1000*60*60 }).length;
 	lastday  = _.filter(timeList, function(ftime) { return ftime > t1-1000*60*60*24 }).length;
+    lastweek  = _.filter(timeList, function(ftime) { return ftime > t1-1000*60*60*24*7 }).length;
 	t2 = new Date().getTime();
 
 	var la = os.loadavg();
@@ -35,7 +36,8 @@ exports.getnetperfinfo = function() {
 		{ "legend":"Last 5 Minutes" , "val": last5min   , "units": "accesses"},
 		{ "legend":"Last 15 Minutes", "val": last15min  , "units": "accesses"},
 		{ "legend":"Last Hour"      , "val": lasthour   , "units": "accesses"},
-		{ "legend":"Last Day"       , "val": lastday    , "units": "accesses"},
+        { "legend":"Last Day"       , "val": lastday    , "units": "accesses"},
+        { "legend":"Last Week"      , "val": lastweek   , "units": "accesses"},
 		{ "legend":"Elapsed Time"   , "val": t2 - t1    , "units": "msec"},
 		{ "legend":"Load Avg-1min"  , "val": la[0]      , "units": ""},
 		{ "legend":"Load Avg-5min"  , "val": la[1]      , "units": ""},
